@@ -19,3 +19,5 @@ In the 2nd case, all data changes are captured by realtime and sent to the clien
 Example Captures:
 
 ![](https://github.com/GaryAustin1/Realtime2/blob/4f5a19444a90fd07ac3f74c66566ef18bc23f166/DataRuns.drawio.png)
+
+Note: I purposely moved API update calls around and in the event handler to increase chances of finding all the different cases occuring.  This testing method is really not the best, or easily documented, but the idea it cause database updates to occur all around the subscription and initial database table load.
