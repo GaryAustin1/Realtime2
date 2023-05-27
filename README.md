@@ -13,3 +13,5 @@ The diagrams below show the issues with loading initial data then subscribing an
 The 2nd diagram also hints at the solution of a queue to deal with the remaining gap.
 
 ![](https://github.com/GaryAustin1/Realtime2/blob/19ebb3bb1c517d471fe40f4477057fff7245d707/RealtimeFlow.drawio.png)
+
+In the 2nd case, all data changes are captured by realtime and sent to the client.  The issue is that there is no initial data to update between getting subscribed and getting the inital data.   By including a queue to capture these request as part of the payload event handler, the original update code from "reliable updates in the real world) can be used.
