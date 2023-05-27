@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-27T18:28:07.319Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0" etag="L5jq0rw4IKnM6jlgJ1Vg" version="21.3.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-05-27T18:34:45.715Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0" etag="t0XO-LG9bB00_1acJ3HX" version="21.3.4" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="1114" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -261,6 +261,15 @@
             <mxPoint x="410" y="320" as="sourcePoint" />
             <mxPoint x="460" y="270" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="_ZbcodiAAwu-0SnMqmma-119" value="Data Lost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="640" y="240" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_ZbcodiAAwu-0SnMqmma-120" value="&lt;div&gt;Normal Event&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="640" y="390" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_ZbcodiAAwu-0SnMqmma-122" value="An Update Queue is needed to handle updating Initial Data correctly in the client event handler" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1060" width="530" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
