@@ -11,6 +11,7 @@ async function app () {
     // First set table to before for multiple runs
     const {data,error} = await supaclient.from(table).update({message:'before'}).select().not('id','is',null)
     console.log('table before',data)
+
     let i = 1;
     let interval = setInterval(function() {
         if (i <= 20) {
@@ -88,6 +89,7 @@ async function app () {
 // just to show final result
     setTimeout(function(){
         console.log('table after ', memoryTable)
+        supaclient.removeChannel(mySubscription)
     }, 2000)
 
 }
