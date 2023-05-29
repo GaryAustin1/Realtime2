@@ -1,4 +1,6 @@
-Preliminary! -- Just problem statement so far.  Code seems to be working, but not ready to post yet.
+Preliminary! -- Basic code working without error restart.  The code is not the same as used to generate the trace at bottom.  The test part is more automated now and just uses console.logs and a timed loop to send updates (inserts/deletes coming).
+
+
 # Realtime2
 In a Supabase Github Discussion [How to obtain reliable realtime updates in the real world](https://github.com/orgs/supabase/discussions/5641)
 I show issues with Realtime losing connection and propose a solution to keep a copy of data from the database updated reliably in the face of errors.  The
