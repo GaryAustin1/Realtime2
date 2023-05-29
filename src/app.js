@@ -1,21 +1,40 @@
 //This code is still being developed.  Also it does not yet incorporate RT in realworld error recovery
 
 async function app () {
-    let sclient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    let supaclient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
     const primaryCol = "id"  // would need changes for composite primary
     const table = "realtest"
+
+    // this is a loop to generate 20 updates or inserts for testing while the subscription is setup
+    // The result should be a table with 20 rows all having after-x for message
+    // First set table to before for multiple runs
+    const {data,error} = await supaclient.from(table).update({message:'before'}).select().not('id','is',null)
+    console.log('table before',data)
+    let i = 1;
+    let interval = setInterval(function() {
+        if (i <= 20) {
+            console.log('update',i)
+            supaclient.from(table).update({message: 'after' + i}).eq(primaryCol, i).then()
+            i++;
+        }
+        else {
+            clearInterval(interval);
+        }
+    }, 50);
+
+    console.log('start subscription')
 
     let eventQueue = []     // holds realtime events before initial table load
     let memoryTable = []    // The table of data we want to keep refreshed
     let initMemoryTable = false    // Don't need to queue anymore when true
     let connected = false     // The postgres_changes event fires continuously so need flag
 
-    const mySubscription = sclient
+    const mySubscription = supaclient
         .channel('myChannel')
         .on('postgres_changes',
             { event: '*', schema: 'public', table: table,}, (payload) => {
-                console.log('event, ',payload)
+                console.log('event, ',payload.eventType,payload.new.id)
                 if (initMemoryTable)
                     handleEvent(payload)  // running normally
                 else
@@ -30,7 +49,7 @@ async function app () {
                     console.log('postgres_changes received, load initial data')
                     connected = true
                     // load initial data
-                    sclient.from(table).select('*').order(primaryCol).limit(20).then(result=>{
+                    supaclient.from(table).select('*').order(primaryCol).limit(20).then(result=>{
                         console.log('initial data loaded',result)
                         //merge previous events into data table
                         eventQueue.forEach((row)=> {
@@ -43,7 +62,7 @@ async function app () {
             }
         })
     function handleEvent(payload) {
-        console.log('handleEvent', payload)
+        console.log('handleEvent', payload.eventType,payload.new.id)
         switch (payload.eventType) {
             case "INSERT":   //Doing an "upsert" to handle inserting to existing ids from the eventqueue
                 let objIndex1 = memoryTable.findIndex((obj => obj[primaryCol] === payload.new[primaryCol]));
@@ -63,8 +82,13 @@ async function app () {
                     memoryTable.splice(objIndex3, 1)
                 break
         }
-        console.log('table after ', memoryTable)
+
     }
+
+// just to show final result
+    setTimeout(function(){
+        console.log('table after ', memoryTable)
+    }, 2000)
 
 }
 document.addEventListener("DOMContentLoaded", function(event) {
