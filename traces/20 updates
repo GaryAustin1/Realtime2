@@ -1,0 +1,87 @@
+Updates 1 and 2 finish before subscription connected
+
+
+18:05:16.174 app.js:13 table before (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+18:05:16.175 app.js:27 start subscription
+18:05:16.226 app.js:18 update 1
+18:05:16.276 app.js:18 update 2
+18:05:16.326 app.js:18 update 3
+18:05:16.375 app.js:18 update 4
+18:05:16.436 app.js:18 update 5
+18:05:16.446 app.js:45 subscribe_status, SUBSCRIBED
+18:05:16.457 app.js:50 postgres_changes received, load initial data
+18:05:16.483 app.js:18 update 6
+18:05:16.531 app.js:18 update 7
+18:05:16.557 app.js:38 event,  UPDATE 3
+18:05:16.557 app.js:38 event,  UPDATE 4
+18:05:16.578 app.js:18 update 8
+18:05:16.599 app.js:54 initial data loaded {error: null, data: Array(20), count: null, status: 200, statusText: ''}
+18:05:16.599 app.js:66 handleEvent UPDATE 4
+18:05:16.599 app.js:66 handleEvent UPDATE 3
+18:05:16.626 app.js:18 update 9
+18:05:16.682 app.js:38 event,  UPDATE 5
+18:05:16.682 app.js:66 handleEvent UPDATE 5
+18:05:16.682 app.js:18 update 10
+18:05:16.683 app.js:38 event,  UPDATE 6
+18:05:16.683 app.js:66 handleEvent UPDATE 6
+18:05:16.683 app.js:38 event,  UPDATE 7
+18:05:16.684 app.js:66 handleEvent UPDATE 7
+18:05:16.734 app.js:18 update 11
+18:05:16.780 app.js:18 update 12
+18:05:16.808 app.js:38 event,  UPDATE 8
+18:05:16.808 app.js:66 handleEvent UPDATE 8
+18:05:16.824 app.js:38 event,  UPDATE 10
+18:05:16.824 app.js:66 handleEvent UPDATE 10
+18:05:16.824 app.js:38 event,  UPDATE 9
+18:05:16.824 app.js:66 handleEvent UPDATE 9
+18:05:16.827 app.js:18 update 13
+18:05:16.893 app.js:18 update 14
+18:05:16.925 app.js:18 update 15
+18:05:16.952 app.js:38 event,  UPDATE 11
+18:05:16.952 app.js:66 handleEvent UPDATE 11
+18:05:16.953 app.js:38 event,  UPDATE 12
+18:05:16.953 app.js:66 handleEvent UPDATE 12
+18:05:16.976 app.js:18 update 16
+18:05:17.029 app.js:18 update 17
+18:05:17.074 app.js:38 event,  UPDATE 13
+18:05:17.074 app.js:66 handleEvent UPDATE 13
+18:05:17.074 app.js:38 event,  UPDATE 14
+18:05:17.074 app.js:66 handleEvent UPDATE 14
+18:05:17.076 app.js:18 update 18
+18:05:17.138 app.js:18 update 19
+18:05:17.185 app.js:18 update 20
+18:05:17.201 app.js:38 event,  UPDATE 16
+18:05:17.201 app.js:66 handleEvent UPDATE 16
+18:05:17.201 app.js:38 event,  UPDATE 15
+18:05:17.201 app.js:66 handleEvent UPDATE 15
+18:05:17.201 app.js:38 event,  UPDATE 17
+18:05:17.201 app.js:66 handleEvent UPDATE 17
+18:05:17.328 app.js:38 event,  UPDATE 18
+18:05:17.329 app.js:66 handleEvent UPDATE 18
+18:05:17.329 app.js:38 event,  UPDATE 19
+18:05:17.329 app.js:66 handleEvent UPDATE 19
+18:05:17.452 app.js:38 event,  UPDATE 20
+18:05:17.452 app.js:66 handleEvent UPDATE 20
+18:05:18.182 app.js:91 table after  (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+0: {id: 1, message: 'after1', created_at: '2023-05-29T21:30:23.239639+00:00'}
+1: {id: 2, message: 'after2', created_at: '2023-05-29T21:30:23.239639+00:00'}
+2: {id: 3, message: 'after3', created_at: '2023-05-29T21:30:23.239639+00:00'}
+3: {id: 4, message: 'after4', created_at: '2023-05-29T21:30:23.239639+00:00'}
+4: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 5, message: 'after5'}
+5: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 6, message: 'after6'}
+6: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 7, message: 'after7'}
+7: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 8, message: 'after8'}
+8: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 9, message: 'after9'}
+9: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 10, message: 'after10'}
+10: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 11, message: 'after11'}
+11: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 12, message: 'after12'}
+12: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 13, message: 'after13'}
+13: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 14, message: 'after14'}
+14: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 15, message: 'after15'}
+15: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 16, message: 'after16'}
+16: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 17, message: 'after17'}
+17: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 18, message: 'after18'}
+18: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 19, message: 'after19'}
+19: {created_at: '2023-05-29T21:30:23.239639+00:00', id: 20, message: 'after20'}
+length: 20[[Prototype]]: Array(0)
+18:05:18.182 app.js:45 subscribe_status, CLOSED
