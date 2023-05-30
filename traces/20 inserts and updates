@@ -1,0 +1,140 @@
+20 existing rows get 20 updates and 20 inserts occur thru the subscription process -- works
+
+20:13:24.931 app.js:18 table initialized
+20:13:24.931 app.js:35 start subscription
+20:13:24.994 app.js:23 update 1
+20:13:25.040 app.js:23 update 2
+20:13:25.086 app.js:23 update 3
+20:13:25.134 app.js:23 update 4
+20:13:25.182 app.js:23 update 5
+20:13:25.243 app.js:23 update 6
+20:13:25.290 app.js:23 update 7
+20:13:25.320 app.js:53 subscribe_status, SUBSCRIBED
+20:13:25.321 app.js:58 postgres_changes received, load initial data
+20:13:25.336 app.js:23 update 8
+20:13:25.362 app.js:46 event,  INSERT 22
+20:13:25.362 app.js:46 event,  INSERT 24
+20:13:25.362 app.js:46 event,  UPDATE 4
+20:13:25.362 app.js:46 event,  UPDATE 5
+20:13:25.382 app.js:23 update 9
+20:13:25.444 app.js:23 update 10
+20:13:25.483 app.js:46 event,  INSERT 26
+20:13:25.484 app.js:23 update 11
+20:13:25.485 app.js:46 event,  UPDATE 6
+20:13:25.485 app.js:46 event,  INSERT 25
+20:13:25.485 app.js:46 event,  INSERT 27
+20:13:25.486 app.js:46 event,  UPDATE 7
+20:13:25.486 app.js:46 event,  INSERT 28
+20:13:25.489 app.js:62 initial data loaded {error: null, data: Array(28), count: null, status: 200, statusText: ''}
+20:13:25.489 app.js:74 handleEvent INSERT 28
+20:13:25.489 app.js:74 handleEvent UPDATE 7
+20:13:25.489 app.js:74 handleEvent INSERT 27
+20:13:25.489 app.js:74 handleEvent INSERT 25
+20:13:25.489 app.js:74 handleEvent UPDATE 6
+20:13:25.489 app.js:74 handleEvent INSERT 26
+20:13:25.490 app.js:74 handleEvent UPDATE 5
+20:13:25.490 app.js:74 handleEvent UPDATE 4
+20:13:25.490 app.js:74 handleEvent INSERT 24
+20:13:25.490 app.js:74 handleEvent INSERT 22
+20:13:25.505 app.js:46 event,  UPDATE 8
+20:13:25.505 app.js:74 handleEvent UPDATE 8
+20:13:25.537 app.js:23 update 12
+20:13:25.582 app.js:23 update 13
+20:13:25.633 app.js:46 event,  INSERT 29
+20:13:25.633 app.js:74 handleEvent INSERT 29
+20:13:25.634 app.js:23 update 14
+20:13:25.635 app.js:46 event,  INSERT 30
+20:13:25.635 app.js:74 handleEvent INSERT 30
+20:13:25.635 app.js:46 event,  UPDATE 9
+20:13:25.635 app.js:74 handleEvent UPDATE 9
+20:13:25.652 app.js:46 event,  INSERT 31
+20:13:25.653 app.js:74 handleEvent INSERT 31
+20:13:25.661 app.js:46 event,  UPDATE 11
+20:13:25.661 app.js:74 handleEvent UPDATE 11
+20:13:25.687 app.js:23 update 15
+20:13:25.736 app.js:23 update 16
+20:13:25.783 app.js:23 update 17
+20:13:25.790 app.js:46 event,  UPDATE 10
+20:13:25.790 app.js:74 handleEvent UPDATE 10
+20:13:25.790 app.js:46 event,  INSERT 32
+20:13:25.791 app.js:74 handleEvent INSERT 32
+20:13:25.791 app.js:46 event,  UPDATE 12
+20:13:25.791 app.js:74 handleEvent UPDATE 12
+20:13:25.791 app.js:46 event,  UPDATE 13
+20:13:25.792 app.js:74 handleEvent UPDATE 13
+20:13:25.792 app.js:46 event,  INSERT 34
+20:13:25.792 app.js:74 handleEvent INSERT 34
+20:13:25.796 app.js:46 event,  UPDATE 14
+20:13:25.796 app.js:74 handleEvent UPDATE 14
+20:13:25.833 app.js:23 update 18
+20:13:25.889 app.js:23 update 19
+20:13:25.927 app.js:46 event,  INSERT 33
+20:13:25.927 app.js:74 handleEvent INSERT 33
+20:13:25.927 app.js:46 event,  INSERT 35
+20:13:25.927 app.js:74 handleEvent INSERT 35
+20:13:25.927 app.js:46 event,  UPDATE 15
+20:13:25.927 app.js:74 handleEvent UPDATE 15
+20:13:25.927 app.js:46 event,  INSERT 36
+20:13:25.927 app.js:74 handleEvent INSERT 36
+20:13:25.927 app.js:46 event,  UPDATE 16
+20:13:25.927 app.js:74 handleEvent UPDATE 16
+20:13:25.934 app.js:23 update 20
+20:13:25.958 app.js:46 event,  INSERT 37
+20:13:25.958 app.js:74 handleEvent INSERT 37
+20:13:25.958 app.js:46 event,  UPDATE 17
+20:13:25.958 app.js:74 handleEvent UPDATE 17
+20:13:26.061 app.js:46 event,  UPDATE 18
+20:13:26.061 app.js:74 handleEvent UPDATE 18
+20:13:26.061 app.js:46 event,  UPDATE 19
+20:13:26.061 app.js:74 handleEvent UPDATE 19
+20:13:26.061 app.js:46 event,  INSERT 39
+20:13:26.061 app.js:74 handleEvent INSERT 39
+20:13:26.078 app.js:46 event,  INSERT 38
+20:13:26.078 app.js:74 handleEvent INSERT 38
+20:13:26.078 app.js:46 event,  INSERT 40
+20:13:26.078 app.js:74 handleEvent INSERT 40
+20:13:26.205 app.js:46 event,  UPDATE 20
+20:13:26.205 app.js:74 handleEvent UPDATE 20
+20:13:26.941 app.js:99 table after  (40)
+0: {created_at: '2023-05-30T01:13:26.154828+00:00', id: 40, message: 'insert40'}
+1: {created_at: '2023-05-30T01:13:26.14582+00:00', id: 38, message: 'insert38'}
+2: {created_at: '2023-05-30T01:13:26.121351+00:00', id: 39, message: 'insert39'}
+3: {created_at: '2023-05-30T01:13:26.000126+00:00', id: 37, message: 'insert37'}
+4: {created_at: '2023-05-30T01:13:25.959086+00:00', id: 36, message: 'insert36'}
+5: {created_at: '2023-05-30T01:13:25.915995+00:00', id: 35, message: 'insert35'}
+6: {created_at: '2023-05-30T01:13:25.883064+00:00', id: 33, message: 'insert33'}
+7: {created_at: '2023-05-30T01:13:25.85911+00:00', id: 34, message: 'insert34'}
+8: {created_at: '2023-05-30T01:13:25.778748+00:00', id: 32, message: 'insert32'}
+9: {created_at: '2023-05-30T01:13:25.722307+00:00', id: 31, message: 'insert31'}
+10: {created_at: '2023-05-30T01:13:25.673879+00:00', id: 30, message: 'insert30'}
+11: {created_at: '2023-05-30T01:13:25.61331+00:00', id: 29, message: 'insert29'}
+12: {id: 1, message: 'after1', created_at: '2023-05-30T01:13:21.518033+00:00'}
+13: {id: 2, message: 'after2', created_at: '2023-05-30T01:13:21.743219+00:00'}
+14: {id: 3, message: 'after3', created_at: '2023-05-30T01:13:21.97063+00:00'}
+15: {id: 4, message: 'after4', created_at: '2023-05-30T01:13:22.240443+00:00'}
+16: {id: 5, message: 'after5', created_at: '2023-05-30T01:13:22.476639+00:00'}
+17: {id: 6, message: 'after6', created_at: '2023-05-30T01:13:22.71986+00:00'}
+18: {id: 7, message: 'after7', created_at: '2023-05-30T01:13:22.957253+00:00'}
+19: {created_at: '2023-05-30T01:13:23.098151+00:00', id: 8, message: 'after8'}
+20: {created_at: '2023-05-30T01:13:23.242492+00:00', id: 9, message: 'after9'}
+21: {created_at: '2023-05-30T01:13:23.446334+00:00', id: 10, message: 'after10'}
+22: {created_at: '2023-05-30T01:13:23.590512+00:00', id: 11, message: 'after11'}
+23: {created_at: '2023-05-30T01:13:23.743498+00:00', id: 12, message: 'after12'}
+24: {created_at: '2023-05-30T01:13:23.894422+00:00', id: 13, message: 'after13'}
+25: {created_at: '2023-05-30T01:13:24.053105+00:00', id: 14, message: 'after14'}
+26: {created_at: '2023-05-30T01:13:24.192705+00:00', id: 15, message: 'after15'}
+27: {created_at: '2023-05-30T01:13:24.332266+00:00', id: 16, message: 'after16'}
+28: {created_at: '2023-05-30T01:13:24.571448+00:00', id: 17, message: 'after17'}
+29: {created_at: '2023-05-30T01:13:24.716831+00:00', id: 18, message: 'after18'}
+30: {created_at: '2023-05-30T01:13:24.878452+00:00', id: 19, message: 'after19'}
+31: {created_at: '2023-05-30T01:13:25.013315+00:00', id: 20, message: 'after20'}
+32: {id: 21, message: 'insert21', created_at: '2023-05-30T01:13:25.226927+00:00'}
+33: {id: 22, message: 'insert22', created_at: '2023-05-30T01:13:25.352373+00:00'}
+34: {id: 23, message: 'insert23', created_at: '2023-05-30T01:13:25.299611+00:00'}
+35: {id: 24, message: 'insert24', created_at: '2023-05-30T01:13:25.374575+00:00'}
+36: {id: 25, message: 'insert25', created_at: '2023-05-30T01:13:25.500455+00:00'}
+37: {id: 26, message: 'insert26', created_at: '2023-05-30T01:13:25.479887+00:00'}
+38: {id: 27, message: 'insert27', created_at: '2023-05-30T01:13:25.507933+00:00'}
+39: {id: 28, message: 'insert28', created_at: '2023-05-30T01:13:25.553105+00:00'}
+length: 40[[Prototype]]: Array(0)
+20:13:26.942 app.js:53 subscribe_status, CLOSED
