@@ -9,20 +9,28 @@ async function app () {
     // this is a loop to generate 20 updates or inserts for testing while the subscription is setup
     // The result should be a table with 20 rows all having after-x for message
     // First set table to before for multiple runs
-    const {data,error} = await supaclient.from(table).update({message:'before'}).select().not('id','is',null)
-    console.log('table before',data)
+    const {data:data1,error:error1} = await supaclient.from(table).delete().not('id','is',null)
+    console.log(data1,error1)
+    for (let i=1; i <= 20; i++ ) {
+        const {data:data2,error:error2} = await supaclient.from(table).insert({id:i,message:'before'+i})
+    }
 
-    let i = 1;
+    console.log('table initialized')
+
+    let i = 1
     let interval = setInterval(function() {
         if (i <= 20) {
             console.log('update',i)
+            supaclient.from(table).insert({id:i+20,message:'insert'+(i+20)}).then()  // add 20 new rows
             supaclient.from(table).update({message: 'after' + i}).eq(primaryCol, i).then()
-            i++;
+            i++
         }
         else {
-            clearInterval(interval);
+            clearInterval(interval)
         }
-    }, 50);
+    }, 50)
+
+    // End of test setup
 
     console.log('start subscription')
 
@@ -50,7 +58,7 @@ async function app () {
                     console.log('postgres_changes received, load initial data')
                     connected = true
                     // load initial data
-                    supaclient.from(table).select('*').order(primaryCol).limit(20).then(result=>{
+                    supaclient.from(table).select('*').order(primaryCol).then(result=>{
                         console.log('initial data loaded',result)
                         //merge previous events into data table
                         eventQueue.forEach((row)=> {
