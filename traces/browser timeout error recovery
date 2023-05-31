@@ -1,0 +1,124 @@
+This shows the startup first time, then a couple of tab switches, finally a long tab switch with error.
+An extra insert is successful after the error recovery.
+
+
+16:47:54.994 app.js:17 table initialized
+16:47:54.994 app.js:102 start subscription
+16:47:54.994 app.js:37 startStream realtest
+16:47:55.047 app.js:22 update 1
+16:47:55.095 app.js:22 update 2
+16:47:55.157 app.js:22 update 3
+16:47:55.205 app.js:22 update 4
+16:47:55.252 app.js:22 update 5
+16:47:55.299 app.js:22 update 6
+16:47:55.329 app.js:52 subscribe_status, SUBSCRIBED
+16:47:55.350 app.js:22 update 7
+16:47:55.362 app.js:60 postgres_changes received, load initial data
+16:47:55.395 app.js:22 update 8
+16:47:55.446 app.js:22 update 9
+16:47:55.448 app.js:45 event,  UPDATE 2
+16:47:55.448 app.js:45 event,  INSERT 24
+16:47:55.448 app.js:45 event,  INSERT 22
+16:47:55.448 app.js:45 event,  UPDATE 4
+16:47:55.449 app.js:45 event,  INSERT 25
+16:47:55.449 app.js:45 event,  UPDATE 5
+16:47:55.496 app.js:22 update 10
+16:47:55.558 app.js:22 update 11
+16:47:55.583 app.js:45 event,  UPDATE 6
+16:47:55.583 app.js:45 event,  INSERT 26
+16:47:55.584 app.js:45 event,  INSERT 27
+16:47:55.584 app.js:45 event,  UPDATE 7
+16:47:55.584 app.js:45 event,  UPDATE 8
+16:47:55.584 app.js:45 event,  INSERT 28
+16:47:55.585 app.js:99 initial data loaded {error: null, data: Array(28), count: null, status: 200, statusText: ''}
+16:47:55.585 app.js:76 handleEvent INSERT 28 id
+16:47:55.585 app.js:76 handleEvent UPDATE 8 id
+16:47:55.585 app.js:76 handleEvent UPDATE 7 id
+16:47:55.585 app.js:76 handleEvent INSERT 27 id
+16:47:55.585 app.js:76 handleEvent INSERT 26 id
+16:47:55.585 app.js:76 handleEvent UPDATE 6 id
+16:47:55.585 app.js:76 handleEvent UPDATE 5 id
+16:47:55.585 app.js:76 handleEvent INSERT 25 id
+16:47:55.585 app.js:76 handleEvent UPDATE 4 id
+16:47:55.585 app.js:76 handleEvent INSERT 22 id
+16:47:55.585 app.js:76 handleEvent INSERT 24 id
+16:47:55.585 app.js:76 handleEvent UPDATE 2 id
+16:47:55.596 app.js:22 update 12
+16:47:55.651 app.js:22 update 13
+16:47:55.695 app.js:22 update 14
+16:47:55.701 app.js:45 event,  UPDATE 9
+16:47:55.701 app.js:76 handleEvent UPDATE 9 id
+16:47:55.705 app.js:45 event,  INSERT 29
+16:47:55.705 app.js:76 handleEvent INSERT 29 id
+16:47:55.705 app.js:45 event,  UPDATE 10
+16:47:55.705 app.js:76 handleEvent UPDATE 10 id
+16:47:55.716 app.js:45 event,  INSERT 31
+16:47:55.717 app.js:76 handleEvent INSERT 31 id
+16:47:55.717 app.js:45 event,  UPDATE 11
+16:47:55.717 app.js:76 handleEvent UPDATE 11 id
+16:47:55.733 app.js:45 event,  INSERT 30
+16:47:55.733 app.js:76 handleEvent INSERT 30 id
+16:47:55.733 app.js:45 event,  INSERT 32
+16:47:55.733 app.js:76 handleEvent INSERT 32 id
+16:47:55.747 app.js:22 update 15
+16:47:55.795 app.js:22 update 16
+16:47:55.858 app.js:22 update 17
+16:47:55.874 app.js:45 event,  INSERT 33
+16:47:55.875 app.js:76 handleEvent INSERT 33 id
+16:47:55.875 app.js:45 event,  UPDATE 13
+16:47:55.875 app.js:76 handleEvent UPDATE 13 id
+16:47:55.875 app.js:45 event,  UPDATE 12
+16:47:55.876 app.js:76 handleEvent UPDATE 12 id
+16:47:55.876 app.js:45 event,  UPDATE 14
+16:47:55.876 app.js:76 handleEvent UPDATE 14 id
+16:47:55.876 app.js:45 event,  INSERT 34
+16:47:55.877 app.js:76 handleEvent INSERT 34 id
+16:47:55.904 app.js:22 update 18
+16:47:55.950 app.js:22 update 19
+16:47:55.988 app.js:45 event,  UPDATE 15
+16:47:55.988 app.js:76 handleEvent UPDATE 15 id
+16:47:55.988 app.js:45 event,  UPDATE 16
+16:47:55.988 app.js:76 handleEvent UPDATE 16 id
+16:47:55.989 app.js:45 event,  INSERT 36
+16:47:55.989 app.js:76 handleEvent INSERT 36 id
+16:47:55.989 app.js:45 event,  INSERT 35
+16:47:55.989 app.js:76 handleEvent INSERT 35 id
+16:47:55.996 app.js:22 update 20
+16:47:56.124 app.js:45 event,  INSERT 37
+16:47:56.124 app.js:76 handleEvent INSERT 37 id
+16:47:56.125 app.js:45 event,  UPDATE 17
+16:47:56.125 app.js:76 handleEvent UPDATE 17 id
+16:47:56.125 app.js:45 event,  INSERT 38
+16:47:56.125 app.js:76 handleEvent INSERT 38 id
+16:47:56.126 app.js:45 event,  UPDATE 18
+16:47:56.126 app.js:76 handleEvent UPDATE 18 id
+16:47:56.126 app.js:45 event,  UPDATE 19
+16:47:56.127 app.js:76 handleEvent UPDATE 19 id
+16:47:56.127 app.js:45 event,  INSERT 39
+16:47:56.128 app.js:76 handleEvent INSERT 39 id
+16:47:56.135 app.js:45 event,  UPDATE 20
+16:47:56.135 app.js:76 handleEvent UPDATE 20 id
+16:47:56.161 app.js:45 event,  INSERT 40
+16:47:56.161 app.js:76 handleEvent INSERT 40 id
+16:47:57.007 app.js:143 table after  (40)
+16:47:59.584 app.js:135 visibility change hidden
+16:48:01.254 app.js:135 visibility change visible
+16:48:01.254 app.js:113 start_up
+16:48:27.940 app.js:135 visibility change hidden
+16:54:57.090 app.js:135 visibility change visible
+16:54:57.090 app.js:113 start_up
+16:56:36.692 app.js:135 visibility change hidden
+17:03:14.529 app.js:52 subscribe_status, CHANNEL_ERROR
+17:03:14.530 app.js:52 subscribe_status, CLOSED
+17:03:14.530 app.js:128 disconnect CLOSED
+17:03:14.530 app.js:128 disconnect CHANNEL_ERROR
+17:07:17.276 app.js:135 visibility change visible
+17:07:17.276 app.js:113 start_up
+17:07:17.276 app.js:115 start stream
+17:07:17.276 app.js:37 startStream realtest
+17:07:17.277 app.js:119 test insert after
+17:07:17.358 app.js:52 subscribe_status, SUBSCRIBED
+17:07:17.381 app.js:60 postgres_changes received, load initial data
+17:07:17.611 app.js:99 initial data loaded {error: null, data: Array(41), count: null, status: 200, statusText: ''}
+17:07:17.698 app.js:45 event,  INSERT 41
+17:07:17.698 app.js:76 handleEvent INSERT 41 id
