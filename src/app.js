@@ -1,4 +1,4 @@
-//This code is still being developed.  Also it does not yet incorporate RT in realworld error recovery
+//This code is still being developed.  Recovery after error working, but not at all set up for multiple connections
 
 async function app () {
     let supaclient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -21,7 +21,7 @@ async function app () {
         if (i <= 20) {
             console.log('update',i)
             supaclient.from('realtest').insert({id:i+20,message:'insert'+(i+20)}).then()  // add 20 new rows
-            supaclient.from('realtest').update({message: 'after' + i}).eq('id', i).then()
+            supaclient.from('realtest').update({message: 'after' + i}).eq('id', i).then()  //update first 20 rows
             i++
         }
         else {
@@ -38,8 +38,6 @@ async function app () {
         let eventQueue = []     // holds realtime events before initial table load
         let initMemoryTable = false    // Don't need to queue anymore when true
         let connected = false     // The postgres_changes event fires continuously so need flag
-        let visible = true
-        let restart = false
         mySubscription = supaclient
             .channel('myChannel')
             .on('postgres_changes',
@@ -102,39 +100,47 @@ async function app () {
         memoryTable.push(...result.data)
     }
     console.log('start subscription')
+    let restart = false
     let testTable = []
     const pCol = 'id'  // would need changes for composite primary
     const table = "realtest"
     startStream(testTable,table,pCol,handleEvent,handleTableInit)
 
-
+    //test need a counter for additional ids....
+    let afterid=41
     async function start_up() {
-        console.log('start status',mySubscription,mySubscription.state,restart,document.visibilityState)
+
+        console.log('start_up')
         if (document.visibilityState === 'visible' && restart) {
-            mySubscription.subscribe()
+            console.log('start stream')
+            startStream(testTable,table,pCol,handleEvent,handleTableInit)
+            restart = false
+                //test inserts
+            console.log('test insert after')
+            supaclient.from('realtest').insert({id:afterid,message:'insert'+(afterid)}).then()  // test to add row after reconnect
+            afterid++  //test
         }
     }
 
     async function connectionErrorHandler (status) {
         restart = true
         if (status !== 'CLOSED') mySubscription.unsubscribe()
-        console.log('disconnect',status,mySubscription)
-        if (document.visibilityState === 'visible') start_up()
-        else {
-
+        console.log('disconnect',status)
+        if (document.visibilityState === 'visible') {
+            start_up()              // got an error, but tab still running so restart
         }
     }
 
     document.onvisibilitychange = () => {
         console.log('visibility change',document.visibilityState)
-        start_up()
+        if (document.visibilityState === 'visible')
+            start_up()
+        else {}        //right now doing nothing on hidden.  Another option is to set a time to close the subscription after x minutes
     };
 
 // just to show final result
     setTimeout(function(){
         console.log('table after ', testTable)
-        //supaclient.removeChannel(mySubscription)
-
     }, 2000)
 
 }
