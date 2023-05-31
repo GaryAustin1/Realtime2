@@ -32,8 +32,8 @@ async function app () {
     // End of test setup
 
     console.log('start subscription')
-    async function startStream(memoryTable,tableName,primaryCol,eventHandler) {
-        console.log('startStream',table)
+    async function startStream(memoryTable,tableName,primaryCol,eventHandler,handleTableInit) {
+        console.log('startStream',tableName)
         let eventQueue = []     // holds realtime events before initial table load
         let initMemoryTable = false    // Don't need to queue anymore when true
         let connected = false     // The postgres_changes event fires continuously so need flag
@@ -43,7 +43,7 @@ async function app () {
             .channel('myChannel')
             .on('postgres_changes',
                 {event: '*', schema: 'public', table: tableName,}, (payload) => {
-                    console.log('event, ', payload.eventType, payload.new.id)
+                    console.log('event, ', payload.eventType, payload.new.id)  // console only works with a column of id
                     if (initMemoryTable)
                         handleEvent(payload,memoryTable,primaryCol)  // running normally
                     else
@@ -60,13 +60,10 @@ async function app () {
                     if (!connected) {
                         console.log('postgres_changes received, load initial data')
                         connected = true
-                        // load initial data
-                        supaclient.from(tableName).select('*').order(primaryCol).then(result => {
-                            console.log('initial data loaded', result)
-                            memoryTable.push(...result.data)
+                        handleTableInit(memoryTable,tableName,primaryCol).then(result=>{
                             //merge previous events into data table
                             eventQueue.forEach((row) => {
-                                handleEvent(row,memoryTable,primaryCol)
+                                handleEvent(row, memoryTable, primaryCol)
                             })
                             initMemoryTable = true
                         })
@@ -77,14 +74,14 @@ async function app () {
 
     //eventHandler is separate as it might be different based on insert/update/delete pattern desired
     function handleEvent(payload,memoryTable,primaryCol) {
-        console.log('handleEvent', payload.eventType, payload.new.id,primaryCol)
+        console.log('handleEvent', payload.eventType, payload.new.id,primaryCol) //console only works with an id col.
         switch (payload.eventType) {
             case "INSERT":   //Doing an "upsert" to handle inserting to existing ids from the eventqueue
                 let objIndex1 = memoryTable.findIndex((obj => obj[primaryCol] === payload.new[primaryCol]));
                 if (objIndex1 !== -1)
                     memoryTable[objIndex1] = payload.new
                 else
-                    memoryTable.unshift(payload.new)
+                    memoryTable.unshift(payload.new)  //insert here just adds to end -- no resort of order in this test
                 break
             case "UPDATE":
                 let objIndex2 = memoryTable.findIndex((obj => obj[primaryCol] === payload.new[primaryCol]));
@@ -98,11 +95,15 @@ async function app () {
                 break
         }
     }
-
+    async function handleTableInit(memoryTable,tableName,primaryCol) {
+        const result = await supaclient.from(tableName).select('*').order(primaryCol)
+            console.log('initial data loaded', result)
+            memoryTable.push(...result.data)
+    }
     let testTable = []
     const pCol = 'id'  // would need changes for composite primary
     const table = "realtest"
-    startStream(testTable,table,pCol,handleEvent)
+    startStream(testTable,table,pCol,handleEvent,handleTableInit)
 
 
     async function start_up() {
