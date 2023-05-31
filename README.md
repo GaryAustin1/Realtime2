@@ -1,4 +1,4 @@
-Preliminary! -- Basic code working without error restart.  The code is not the same as used to generate the trace at bottom.  The test part is more automated now and just uses console.logs and a timed loop to send updates (inserts/deletes coming).
+Preliminary! -- Basic code working with error restart, needs lots of cleanup and work for multiple subscriptons.  The code is not the same as used to generate the trace at bottom.  The test part is more automated now and just uses console.logs and a timed loop to send updates (inserts/deletes coming).
 
 
 # Realtime2
