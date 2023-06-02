@@ -18,9 +18,13 @@ The 2nd diagram also hints at the solution of a queue to deal with the remaining
 
 In the 2nd case, all data changes are captured by realtime and sent to the client.  The issue is that there is no initial data to update between getting subscribed and getting the inital data.   By including a queue to capture these request as part of the payload event handler, the original update code from "reliable updates in the real world) can be used.
 
-Example Captures:
-This shows the yellow event path.
+Example Captures (tests not in the current code):
+These show the yellow event path.  
+1.
 
+![image](https://github.com/GaryAustin1/Realtime2/assets/54564956/13c2c135-4b70-4293-9c12-eafd0729d6f2)  
+
+2.
 ![missing events](https://github.com/GaryAustin1/Realtime2/assets/54564956/7c7d7860-8cee-4bca-9e67-51aac0d56acc)
 
 Note.  Need to edit below as the two yellows are actually green events.  Must have been late.  Will update with yellow event.
