@@ -1,6 +1,6 @@
 Preliminary! -- Basic code working with error restart, needs lots of cleanup and work for multiple subscriptons.  The code is not the same as used to generate the trace at bottom.  The test part is more automated now and just uses console.logs and a timed loop to send updates (inserts/deletes coming).
 
-This respository [supabase-live-table](https://github.com/openartmarket/supabase-live-table/blob/main/src/index.ts) by aslakhellesoy uses a slightly different approach to the problem and uses timestamps to insure integrity.  It is also a more complete working solution versus my more test scenarios discussed below.  The error handling/retries discussed here and my other Github discussion should work with that repository also as currently it does not implement retry on error and leaves that to the user.   
+NOTE:  This respository [supabase-live-table](https://github.com/openartmarket/supabase-live-table/blob/main/src/index.ts) by aslakhellesoy uses a slightly different approach to the problem and uses timestamps to insure integrity.  It is also a more complete working solution versus my more test scenarios discussed below.  The error handling/retries discussed here and my other Github discussion should work with that repository also as currently it does not implement retry on error and leaves that to the user.   
 
 # Realtime2
 In a Supabase Github Discussion [How to obtain reliable realtime updates in the real world](https://github.com/orgs/supabase/discussions/5641)
